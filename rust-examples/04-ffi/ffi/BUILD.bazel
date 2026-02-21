@@ -5,6 +5,7 @@ load("@rules_rust//rust:defs.bzl", "rust_shared_library")
 # linker library with only a static_library member.
 rust_shared_library(
     name = "rust_shared_lib_with_static_dep",
+    crate_name = "rust_shared_lib_with_static_dep",
     srcs = ["src/rust_shared_lib_with_static_dep.rs"],
     deps = [":static_cclib"],
 )

@@ -12,7 +12,33 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+fn fib_memo(n: usize, memo: &mut Vec<Option<u64>>) -> u64 {
+    match n {
+        0 => 0,
+        1 => 1,
+        _ => {
+            if let Some(val) = memo[n] {
+                return val;
+            }
+            let result = fib_memo(n - 1, memo) + fib_memo(n - 2, memo);
+            memo[n] = Some(result);
+            result
+        }
+    }
+}
+
+fn fibonacci(n: usize) -> u64 {
+    let mut memo = vec![None; n + 1];
+    return fib_memo(n, &mut memo);
+}
+
+fn computation_and_print() {
+    let start = std::time::Instant::now();
+    let n = 40;
+    let result = fibonacci(n);
+    println!("Time: {:?} ; fib({})={}", start.elapsed(), n, result);
+}
 
 fn main() {
-    println!("Hello, world!");
+    computation_and_print();
 }

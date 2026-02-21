@@ -11,9 +11,12 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-
+use rand::Rng; // Import the Rng trait
 
 fn main() -> anyhow::Result<()> {
     println!("Hello, world!");
+    let mut rng = rand::thread_rng();
+    let n: u32 = rng.gen_range(1..=10); // Generates a number from 1 to 10 inclusive
+    println!("Random number: {}", n);
     Ok(())
 }

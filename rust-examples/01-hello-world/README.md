@@ -1,5 +1,5 @@
 
-# Hello World 
+# Hello World
 
 In this first example, the goal is to build a minimal Hello World Rust binary with Bazel.
 
@@ -10,7 +10,7 @@ On your computer, you need:
 * Cargo & Rust
 * C compiler (gcc, or clang)
 
-## Configuration 
+## Configuration
 
 A minimal MODULE.bazel file for Rust contains three parts:
 
@@ -25,7 +25,7 @@ module(
     name = "hello_world",
     version = "0.0.0"
 )
- 
+
 # https://github.com/bazelbuild/rules_rust/releases
 bazel_dep(name = "rules_rust", version = "0.50.1")
 
@@ -64,4 +64,3 @@ This is it. Now run your build:
 And run your target:
 
 `bazel run //hello_world:bin`
-
